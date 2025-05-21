@@ -9,3 +9,4 @@ web/webImageBrowser/PackagingLog.html
 
 *.asv
 data/images/multispectral/FruitMCC.mat
+__pycache__/
