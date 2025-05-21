@@ -26,4 +26,5 @@ A set of tutorial videos introducing aspects of ISETCam and the companion tool f
 
 * May 10, 2024 We work more smoothly with EXR files, including sceneFromFile now reading in EXR files, and writing out sensor2EXR) This work was implemented for the extensions to HDR imaging and application of the Restormer PyTorch network for demosaicing sensor data.
 * April 15, 2024 Implemented a remote copy function ieSCP, to help with the distributed nature of our assets and datafiles
+* October, 2024 - Added Python utilities for reading and writing color filter files (see `python/colorfilter.py`).
 
