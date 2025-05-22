@@ -20,6 +20,7 @@ A set of tutorial videos introducing aspects of ISETCam and the companion tool f
 
 * May 1, 2024 - New functions for creating controlled HDR images have been added (see sceneHDRImages).
 * May 10, 2024 - First example implemented for running a PyTorch network, exported as an ONNX file, inside of Matlab using miniconda and pyenv.  See s_python.m
+* May 30, 2024 - Added initial Python utilities (`ie_clip`, `ie_param_format` and `image_distort`) along with a `requirements.txt` file to begin the migration of common routines to Python.
 * February 10, 2024 - We added a model for the split pixel sensor, specifically the Sony IMX490. These are based on the prior implementation of the Sony IMX363 sensor. A script, s_sensorIMX490 and related functions have been added. These methods simulate the split pixel capture and include some means for combining the large and small photodetector data.  The algorithms for combining continue to be developed.  A major point of this sensor is for the high dynamic range imaging, such as nighttime driving.  We added an ISET repository (ISETHdrsensor) that is exploring different HDR sensor technologies, including the split pixel.
 
 ## Utilities
