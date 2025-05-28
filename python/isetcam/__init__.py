@@ -29,6 +29,9 @@ from .ie_session_set import ie_session_set
 from .ie_save_session import ie_save_session
 from .ie_load_session import ie_load_session
 from .vc_add_and_select_object import vc_add_and_select_object
+from .vc_get_object import vc_get_object
+from .vc_replace_object import vc_replace_object
+from .vc_replace_and_select_object import vc_replace_and_select_object
 from .rgb_to_xw_format import rgb_to_xw_format
 from .xw_to_rgb_format import xw_to_rgb_format
 from .xyz_to_lab import xyz_to_lab
@@ -171,4 +174,7 @@ __all__ = [
     'openexr_read',
     'openexr_write',
     'vc_add_and_select_object',
+    'vc_get_object',
+    'vc_replace_object',
+    'vc_replace_and_select_object',
 ]
