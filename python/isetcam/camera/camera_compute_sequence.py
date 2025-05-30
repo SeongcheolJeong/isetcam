@@ -11,17 +11,14 @@ from .camera_compute import camera_compute
 from ..scene import Scene
 
 
-def _ensure_sequence(val, n: int | None) -> list:
-    """Return ``val`` as a list of length ``n``.
+def _ensure_sequence(val, n: int | None) -> tuple[list, bool]:
+    """Return ``val`` as a list of length ``n`` and whether it was a sequence."""
 
-    If ``val`` is already a sequence, it is returned as a list. When ``val``
-    is a scalar and ``n`` is provided, ``val`` is replicated ``n`` times.
-    """
     if isinstance(val, (list, tuple)):
-        return list(val)
+        return list(val), True
     if n is None:
-        return [val]
-    return [val for _ in range(n)]
+        return [val], False
+    return [val for _ in range(n)], False
 
 
 def camera_compute_sequence(
@@ -54,10 +51,12 @@ def camera_compute_sequence(
     """
 
     # Convert inputs to lists
-    scenes_list = _ensure_sequence(scenes, n_frames)
-    exp_list = _ensure_sequence(exposure_times, n_frames)
+    scenes_list, scenes_is_seq = _ensure_sequence(scenes, n_frames)
+    exp_list, exp_is_seq = _ensure_sequence(exposure_times, n_frames)
 
     if n_frames is None:
+        if scenes_is_seq and exp_is_seq and len(scenes_list) != len(exp_list):
+            raise ValueError("Number of scenes must equal number of exposure_times")
         n_frames = max(len(scenes_list), len(exp_list))
 
     if len(scenes_list) not in {1, n_frames}:
