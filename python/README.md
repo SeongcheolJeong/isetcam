@@ -35,3 +35,6 @@ validate the installation run the unit tests:
 export PYTHONPATH=$PWD/python
 pytest -q
 ```
+
+These tests are also executed automatically via
+[GitHub Actions](../.github/workflows/python-tests.yml).
