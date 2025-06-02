@@ -5,6 +5,7 @@ from .scene_add import scene_add
 from .scene_utils import get_photons, set_photons, get_n_wave
 from .scene_from_file import scene_from_file
 from .scene_from_ddf_file import scene_from_ddf_file
+from .scene_from_basis import scene_from_basis
 from .scene_get import scene_get
 from .scene_set import scene_set
 from .scene_adjust_luminance import scene_adjust_luminance
@@ -66,6 +67,7 @@ __all__ = [
     "get_n_wave",
     "scene_from_file",
     "scene_from_ddf_file",
+    "scene_from_basis",
     "scene_get",
     "scene_set",
     "scene_adjust_luminance",
