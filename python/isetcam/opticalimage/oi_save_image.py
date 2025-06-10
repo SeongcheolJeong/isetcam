@@ -25,7 +25,9 @@ def _photons_to_rgb(oi: OpticalImage, display: Display) -> np.ndarray:
         raise ValueError("Wavelength dimension mismatch with display")
 
     xw, rows, cols = rgb_to_xw_format(photons)
-    rgb_lin = xw @ np.linalg.pinv(spd)
+    # ``spd`` is ``(n_wave, 3)``. Use the pseudoinverse of the transpose so the
+    # multiplication yields ``(N, 3)`` RGB values.
+    rgb_lin = xw @ np.linalg.pinv(spd.T)
     if display.gamma is not None:
         rgb = display_apply_gamma(rgb_lin, display, inverse=True)
     else:

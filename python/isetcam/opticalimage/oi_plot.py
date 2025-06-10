@@ -38,7 +38,9 @@ def _photons_to_srgb(oi: OpticalImage, display: Display) -> np.ndarray:
     photons = np.asarray(oi.photons, dtype=float)
     spd = np.asarray(display.spd, dtype=float)
     xw, rows, cols = rgb_to_xw_format(photons)
-    rgb_lin = xw @ np.linalg.pinv(spd)
+    # Convert the spectral data to display RGB values. ``spd`` has shape
+    # ``(n_wave, 3)``, hence we use the pseudoinverse of its transpose.
+    rgb_lin = xw @ np.linalg.pinv(spd.T)
     if display.gamma is not None:
         rgb = display_apply_gamma(rgb_lin, display, inverse=True)
     else:
